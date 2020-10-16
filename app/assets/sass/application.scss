@@ -18,6 +18,8 @@ $button-colour: #00823b;
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 @import "components/map";
+@import "components/notification-banner";
+@import "components/application-card";
 
 blockquote {
   margin: 0;
@@ -382,4 +384,125 @@ dl.aligned.course-part-tasks dd {
 .error .govuk-warning-text__icon {
   background-color: $govuk-error-colour;
   border-color: $govuk-error-colour;
+}
+
+.dm-alert {
+  @include govuk-focusable;
+  @include govuk-responsive-padding(4);
+  @include govuk-responsive-margin(8, "bottom");
+  border: govuk-spacing(1) solid;
+}
+.dm-alert--success {
+  border-color: govuk-colour("green");
+}
+.dm-alert--error {
+  border-color: $govuk-error-colour;
+}
+.dm-alert--notice {
+  border-color: govuk-colour("blue");
+}
+.dm-alert__title {
+  @include govuk-font(19, $weight: bold);
+  margin: 0px;
+}
+.dm-alert__title--large {
+  @include govuk-font(24, $weight: bold);
+}
+.dm-alert__body {
+  @include govuk-font(19);
+  @include govuk-responsive-padding(4,"top");
+  @include govuk-responsive-padding(0,"bottom");
+}
+
+.govuk-header__new {
+  font-size: 0; // Removes white space when using inline-block on child element.
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .dm-admin-header {
+    .govuk-header__container {
+      border-bottom-color: govuk-colour("red");
+    }
+  }
+  
+  .govuk-header__logo {
+    width: 100%;
+
+    @include govuk-media-query($from: 1000px) {
+      width: auto;
+    }
+    
+    // @media (min-width: 1000px) {
+    //   width: auto;
+    // }
+  }
+
+  .govuk-header__logotype-text {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  
+  .govuk-header__content {
+    text-align: left;
+
+    @include govuk-media-query($from: 1000px) {
+      width: auto;
+      float: none;
+      text-align: right;
+    }
+    
+  }
+
+  .govuk-header__navigation-item {
+    display: inline-block;
+    margin-right: govuk-spacing(4);
+    
+    &:last-child {
+      margin-right: 0;
+    }
+    
+    a {   
+      @include govuk-font(19);
+      text-decoration: underline;
+    }
+    
+    a:hover {
+      text-decoration: none;
+    }
+  
+  }
+
+  .govuk-header__navigation-item--active {
+    a {
+      font-weight: 700;
+      border: none;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .govuk-header__link {
+    font-weight: normal;
+
+    &:link,
+    &:visited,
+    &:active {
+      color: inherit;
+    }
+  
+    &:focus {
+      color: govuk-colour("black");
+    }
+  
+  }
+
+  .govuk-header__logotype-text {
+    text-decoration: none;
+  }
+
 }

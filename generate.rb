@@ -5,7 +5,11 @@ require 'json'
 
 file = File.read('courses-clean.json')
 data = JSON.parse(file)
+<<<<<<< HEAD
+provider = 'University of Bedfordshire'
+=======
 provider = 'Academies Enterprise Trust: London'
+>>>>>>> origin/manage-users-v2
 next_cycle = true
 courses = data.select {|c| c['provider'] == provider }
 accredited_courses = data.select {|c| c['accrediting'] == provider }

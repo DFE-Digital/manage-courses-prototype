@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+<<<<<<< HEAD
+{% block pageTitle %}Users{% endblock %}
+=======
+{% set title = 'Users' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+>>>>>>> origin/manage-users-v2
+{% set navActive = 'users' %}
+{% block breadcrumbs %}{{ macros.breadcrumbs(breadcrumbItems())}}{% endblock %}
+
+{% block content %}
+  {% set message %}
+    {% if showMessage %}
+      <div class="success-summary" role="alert" aria-labelledby="success-summary-heading-example-1" tabindex="-1" style="margin-bottom: 60px">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-0 success-summary-heading" id="success-summary-heading-example-1">
+          DfE has received your request to give access to {{ data['request-first-name']}} {{ data['request-last-name'] }}.
+        </h3>
+        <p class="govuk-!-margin-bottom-0">
+          They will receive sign-up instructions if their account is approved.
+        </p>
+      </div>
+    {% endif %}
+  {% endset %}
+
+<<<<<<< HEAD
+  {{ macros.orgHeading('Users', message) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p>These users currently have access to this account. They can manage all your course and organisation details, including publishing, closing and withdrawing courses.</p>
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+=======
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+      <p>These users currently have access to this account. They can manage all your course and organisation details, including publishing, closing and withdrawing courses.</p>
+>>>>>>> origin/manage-users-v2
+      {{govukButton({
+        text: 'Invite user',
+        href: '/users/invite-user'
+      })}}
+      <div class="app-application-card">
+<<<<<<< HEAD
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Ross Anderson</h2>
+        <p class="govuk-!-margin-bottom-3">ross.anderson@ucl.ac.uk </p>
+        <a href="/users/delete-user" class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2 govuk-link--no-visited-state">Delete user</a>
+      </div>
+      <div class="app-application-card">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Hermione Granger</h2>
+          <p class="govuk-!-margin-bottom-3">hermione.granger@ucl.ac.uk </p>
+          <a href="/users/delete-user" class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2 govuk-link--no-visited-state">Delete user</a>
+      </div>
+      <div class="app-application-card">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Billy Boyo</h2>
+        <p class="govuk-!-margin-bottom-3">billy.boyo@ucl.ac.uk</p>
+        <a href="/users/delete-user" class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2 govuk-link--no-visited-state">Delete user</a>
+=======
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a class="govuk-link govuk-link--no-visited-state" href="/users/show">Ross Anderson</a>
+        </h2>
+        <p class="govuk-!-margin-bottom-0">ross.anderson@address.uk</p>
+      </div>
+      <div class="app-application-card">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Hermione Granger</a>
+          </h2>
+          <p class="govuk-!-margin-bottom-0">hermione.granger@address.uk</p>
+      </div>
+      <div class="app-application-card">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Billy Boyo</a>
+        </h2>
+        <p class="govuk-!-margin-bottom-0">billy.boyo@address.uk</p>
+>>>>>>> origin/manage-users-v2
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

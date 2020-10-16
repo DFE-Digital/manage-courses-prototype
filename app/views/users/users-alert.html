@@ -1,0 +1,54 @@
+{% extends "layout-new.html" %}
+{% block pageTitle %}Users{% endblock %}
+{% block backLink %}{{ macros.backLink('/cycles' if data['rolled-over'] else '/') }}{% endblock %}
+
+{% block content %}
+  <div class="success-summary" role="alert" aria-labelledby="success-summary-heading-example-1" tabindex="-1" style="margin-bottom: 60px">
+    <h3 class="govuk-heading-m govuk-!-margin-bottom-0 success-summary-heading" id="success-summary-heading-example-1">
+      We have received your request.
+    </h3>
+    <p class="govuk-!-margin-bottom-0">
+      If the request is approved, the new user will receive sign up instructions by email. This should happen within 2 working days. If the request is not approved, we’ll contact you by email with further information.
+    </p>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p>These users currently have access to this account. They can manage all your course and organisation details, including publishing, closing and withdrawing courses.</p>
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+      {{govukButton({
+        text: 'Invite user',
+        href: '/users/invite-user'
+      })}}
+      <div class="app-application-card">
+        <div class="full">
+          <div class="left">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Ross Anderson</h2>
+            <p class="govuk-!-margin-bottom-3">ross.anderson@titan.org.uk</p>
+          </div>
+          <a href="/users/delete-user" class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2">Delete user</a>
+        </div>
+      </div>
+      <div class="app-application-card">
+        <div class="full">
+          <div class="left">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Hermione Granger</h2>
+            <p class="govuk-!-margin-bottom-3">hermione.granger@wizardschool.com</p>
+          </div>
+          <a href="/users/delete-user" class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2">Delete user</a>
+        </div>
+      </div>
+      <div class="app-application-card">
+        <div class="full">
+          <div class="left">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Billy Boyo</h2>
+            <p class="govuk-!-margin-bottom-3">billy.boyo@wizardschool.com</p>
+          </div>
+          <a href="/users/delete-user" class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-top-2">Delete user</a>
+        <div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

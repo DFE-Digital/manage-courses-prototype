@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% set title = 'Manage: Updates to courses as an accredited body' %}
+{% set navActive = 'notifications' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+{# {% block breadcrumbs %}{{ macros.breadcrumbs(breadcrumbItems())}}{% endblock %} #}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="/" method="post" class="form">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-8">
+            <span class="govuk-caption-xl">Manage notifications</span>
+            Changes to courses as an accredited body
+          </h1>
+        </legend>
+
+        <div class="govuk-!-margin-bottom-6">
+          <p>Receive notifications about courses that you’re the accredited body for. You’ll be told about any new courses added and updated about changes to existing courses.</p>
+        </div>
+
+        <h2 class="govuk-heading-m">Would you like to be notified?</h2>
+
+        {% set fields = [
+          {
+            name: "Yes, send notificatons to pgce.admissions@beds.ac.uk",
+            value: "get-notifications",
+            checked: checked("notifications", "get-notifications")
+          },
+          {
+            name: "No",
+            value: "no-notifications",
+            checked: checked("notifications", "no-notifications")
+          }
+        ]
+        %}
+        {{ macros.radioGroup('ab-notifications', fields) }}
+
+        {# {{ macros.checkboxGroup('agree-to-share', [{ name: 'I give permission to receive emails from Publish teacher training courses' }], false) }} #}
+      <input type="submit" class="govuk-button govuk-!-margin-bottom-8 govuk-!-margin-top-2" value="Save">
+    </form>
+    <p>
+      <a href="/">Cancel changes</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
