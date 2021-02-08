@@ -26,7 +26,7 @@
             <h3 class="govuk-heading-m">
               <a href="/accredited-body/{{ provider.code }}">{{ provider.name }} ({{ provider.code }})</a>
               <span class="govuk-body govuk-!-font-weight-regular govuk-!-display-block">
-                Lead school: Example School Name<br />
+                {# Lead school: Example School Name<br /> #}
                 {{ provider.count }}&nbsp;course{% if not (provider.count == 1) %}s{% endif %}
               </span>
             </h3>
@@ -55,9 +55,13 @@
     </div>
     <div class="govuk-grid-column-one-third">
       <div class="status-box">
+        {# <h2 class="govuk-heading-m govuk-!-margin-top-2">
+          <a href="/notifications">Notifications</a>
+        </h2>
+        <p>Recieve notifications about courses that you’re the accredited body for.</p> #}
         <h2 class="govuk-heading-m">Download</h2>
         <p>Export all the courses you’re the accredited body for.</p>
-        <p class="govuk-!-margin-bottom-0">
+        <p class="">
           <a href="#">Download as a CSV file</a>
         </p>
       </div>

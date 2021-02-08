@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block content %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
@@ -32,8 +33,24 @@
     </div>
   </div>
 
+  {# <div class="app-banner app-banner--information app-banner--temporary-message">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="app-banner__heading">
+          New features
+        </h2>
+        <p class="govuk-body">We’ve added two features to further support accredited bodies.</p> 
+        <ul class="govuk-list govuk-list--bullet app-banner__message">
+          <li><a href="/accredited-body">See which courses</a> you're the accredited body for</li>
+          <li><a href="/notifications">Get notifications</a> about changes to these courses</li>
+        </ul>
+      </div>
+    </div>
+  </div> #}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
       {% if data['rolled-over'] %}
         {% if data['next-cycle'] %}
           <p class="govuk-body-l">Prepare your courses and locations for the next cycle. All your courses, locations and details have been copied from the current cycle.</p>
@@ -105,11 +122,14 @@
     <div class="govuk-grid-column-one-third">
       {% if not data['rolled-over'] %}
       <div class="status-box">
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
-          <a href="/request-access">Request access</a>
+        {# <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+          <a href="/notifications">Notifications</a>
         </h2>
-        <p>Request a DfE Sign-in account for others who manage your courses.</p>
-
+        <p>Recieve notifications about courses that you’re the accredited body for.</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+          <a href="/users/users">Users</a>
+        </h2>
+        <p>See who has access to this account and invite new users.</p> #}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
           <a href="/ucas/apply-preferences">UCAS contacts</a>
         </h2>

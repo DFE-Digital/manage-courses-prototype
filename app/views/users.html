@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% set title = 'Users' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+{% set navActive = 'users' %}
+{% block breadcrumbs %}{{ macros.breadcrumbs(breadcrumbItems())}}{% endblock %}
+
+{% block content %}
+  {% set message %}
+    {% if showMessage %}
+      <div class="success-summary" role="alert" aria-labelledby="success-summary-heading-example-1" tabindex="-1" style="margin-bottom: 60px">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-0 success-summary-heading" id="success-summary-heading-example-1">
+          DfE has received your request to give access to {{ data['request-first-name']}} {{ data['request-last-name'] }}.
+        </h3>
+        <p class="govuk-!-margin-bottom-0">
+          They will receive sign-up instructions if their account is approved.
+        </p>
+      </div>
+    {% endif %}
+  {% endset %}
+
+  {{ macros.orgHeading('Users', message) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p>These users currently have access to this account. They can manage all your courses and organisation details, including publishing, closing and withdrawing courses.</p>
+      {{govukButton({
+        text: 'Invite user',
+        href: '/users/invite-user'
+      })}}
+      <div class="app-application-card">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a class="govuk-link govuk-link--no-visited-state" href="/users/show">Ross Anderson</a>
+        </h2>
+        <p class="govuk-!-margin-bottom-0">ross.anderson@address.uk</p>
+      </div>
+      <div class="app-application-card">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Hermione Granger</a>
+          </h2>
+          <p class="govuk-!-margin-bottom-0">hermione.granger@address.uk</p>
+      </div>
+      <div class="app-application-card">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Billy Boyo</a>
+        </h2>
+        <p class="govuk-!-margin-bottom-0">billy.boyo@address.uk</p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

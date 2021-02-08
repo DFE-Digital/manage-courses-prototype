@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% set title = 'Ross Anderson' %}
+{% block pageTitle %}{{ title }}{% endblock %}
+{% block backLink %}{{ macros.backLink('/users') }}{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{title}}</h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "First name"
+            },
+            value: {
+              text: "Ross"
+            }
+          },
+          {
+            key: {
+              text: "Last name"
+            },
+            value: {
+              text: "Anderson"
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: "ross.anderson@address.uk"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Delete user",
+        classes: "govuk-button--warning",
+        href: "/users/delete-user"
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}
